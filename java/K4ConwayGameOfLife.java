@@ -6,6 +6,7 @@ public class K4ConwayGameOfLife {
 
     private static boolean checkLife(int[][] cells, int x, int y) {
         int numNeighbors = 0;
+        // Use directions to get the number of alive neighbors for each cell
         for (int[] dir : directions) {
             int dx = x + dir[0];
             int dy = y + dir[1];
@@ -26,6 +27,8 @@ public class K4ConwayGameOfLife {
     }
 
     private static int[][] expandCopyMatrix(int[][] cells) {
+        // Since the place is infinitely large,
+        // we have to add a dead cell border to the original per generation
         int[][] temp = new int[cells.length + 2][cells[0].length + 2];
         for (int[] row : temp)
             Arrays.fill(row, 0);
@@ -40,6 +43,7 @@ public class K4ConwayGameOfLife {
     }
 
     private static int[][] trimMatrix(int[][] cells) {
+        // Trim any excess 0 that is on the outskirts of cells
         int xMin = cells[0].length, yMin = cells.length;
         int xMax = -1, yMax = -1;
 
