@@ -3,6 +3,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class K4LargeFactorials {
+    // Each element in the list is a single digit
+    // The list represents a number in reversed order
+    // ie. 2738 is stored as {8, 3, 7, 2}
     private static List<Integer> Multiply(List<Integer> numList, int mult) {
         int carry = 0;
         List<Integer> result = new ArrayList<Integer>();
